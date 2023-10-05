@@ -50,6 +50,27 @@ public abstract class Employee implements Comparable<Employee> {
         this.profession = profession;
     }
 
+    @Override
+    public int compareTo(Employee o) {
+
+        int surNameRes = surName.compareTo(o.surName);
+        if (surNameRes == 0){
+            return name.compareTo(o.name);
+        }
+        return surNameRes;
+    }
+
+    // //Сортировка по профессии + фамилия.
+    // @Override
+    // public int compareTo(Employee o) {
+    //     int prof = profession.compareTo(o.profession);
+    //     if (prof == 0) {
+    //         return surName.compareTo(o.surName);
+    //     } else {
+    //         return profession.compareTo(o.profession);
+    //     }
+    // }
+
     // @Override
     // public String toString() {
     //     return String.format("[%d] %s %s. ЗП: %.2f руб. Возраст %s лет (года). %s.", idEmployee, surName, name, salary, age, profession);

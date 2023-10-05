@@ -34,15 +34,25 @@ public class CreateWorkers {
     //без указания сколько каких специальностей создать.
     static Employee[] generateEmployees(int count){
         Employee[] arrayEmployee = new Employee[count];
-    
+        // СОЗДАНИЕ РАБОТНИКОВ С УКАЗАНИЕМ КОЛИЧЕСТВА СПЕЦИАЛИСТОВ
+        int k = 0; // счетчик специалистов
         for (int j = 0; j < arrayEmployee.length; j++) {
-            arrayEmployee[j] = generateWorker();
-            j++;
-            if (j < arrayEmployee.length) {
+            //условие для создания специалистов по количеству            
+            if (k < 2) {
                 arrayEmployee[j] = generateFreelancer();
+                k++;
+            } else {
+                arrayEmployee[j] = generateWorker();
             }
-    
         }
+        // СОЗДАНИЕ РАБОТНИКОВ ПРИМЕРНО ровными количествами, проверка if для нечетных количеств
+        // for (int j = 0; j < arrayEmployee.length; j++) {
+        //     arrayEmployee[j] = generateWorker();
+        //     j++;
+        //     if (j < arrayEmployee.length) {
+        //         arrayEmployee[j] = generateFreelancer();
+        //     }
+        // }
         return arrayEmployee;
         }
 }
