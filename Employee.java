@@ -13,6 +13,8 @@ public abstract class Employee implements Comparable<Employee> {
 
     protected int age; //возраст
 
+    protected ProfessionType profession;
+
 
 
     /**
@@ -21,12 +23,12 @@ public abstract class Employee implements Comparable<Employee> {
      */
     public abstract double calculateSalary();
 
-    public Employee(String surName, String name, double salary, int age) {
+    public Employee(String surName, String name, double salary, int age, ProfessionType profession) {
         this.name = name;
         this.surName = surName;
         this.salary = salary;
         this.age = age;
-
+        this.profession = profession;
     }
 
     @Override
@@ -38,4 +40,9 @@ public abstract class Employee implements Comparable<Employee> {
         }
         return surNameRes;
     }
+
+    // @Override
+    // public String toString() {
+    //     return String.format("%s %s; %s; Возраст %s; Заработная плата: %s.", surName, name, profession, calculateSalary());
+    // }
 }

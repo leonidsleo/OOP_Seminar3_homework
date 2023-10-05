@@ -4,9 +4,11 @@ package Homework3;
  * Рабочий (фулл-тайм)
  */
 public class Worker extends Employee {
-    public Worker(String surName, String name, double salary, int age) {
-        super(surName, name, salary, age);
+    public Worker(String surName, String name, double salary, int age, ProfessionType profession) {
+        super(surName, name, salary, age, profession);
     }
+
+    // private static Random random = new Random();
 
     @Override
     public double calculateSalary() {
@@ -15,7 +17,7 @@ public class Worker extends Employee {
 
     @Override
     public String toString() {
-        return String.format("%s %s; Рабочий; Среднемесячная заработная плата (фиксированная): %.2f (руб.)",
-                surName, name, calculateSalary());
+        return String.format("%s %s. ЗП: %.2f руб.. Возраст %s лет (года). %s.",
+                surName, name, salary, age, profession);
     }
 }

@@ -1,12 +1,11 @@
 package Homework3;
 
-import java.util.Arrays;
 import java.util.Random;
 
-public class Task {
+public class CreateWorkers {
 
     private static Random random = new Random();
-
+//Создаем работников основных специальностей
     static Worker generateWorker(){
         String[] names = new String[] { "Анатолий", "Глеб", "Клим", "Мартин", "Лазарь", "Владлен", "Клим", "Панкратий", "Рубен", "Герман" };
         String[] surNames = new String[] { "Григорьев", "Фокин", "Шестаков", "Хохлов", "Шубин", "Бирюков", "Копылов", "Горбунов", "Лыткин", "Соколовкий" };
@@ -16,7 +15,7 @@ public class Task {
         Worker worker = new Worker(surNames[random.nextInt(surNames.length)], names[random.nextInt(names.length)], salary, age, profession[random.nextInt(profession.length)]);
         return worker;
     }
-
+//Создаем работников фрилансеров
     static Freelancer generateFreelancer(){
         String[] names = new String[] { "Анатолий", "Глеб", "Богдан", "Аркадий", "Вадим", "Дамир", "Горимир", "Капитон", "Кирилл", "Герман" };
         String[] surNames = new String[] { "Агеев", "Алешин", "Блинов", "Хохлов", "Богданов", "Блохин", "Копытов", "Виноградов", "Белкин", "Соколов" };
@@ -27,49 +26,22 @@ public class Task {
         Double salary = hoursWorked * hourlyRate;
         Freelancer freelancer = new Freelancer(surNames[random.nextInt(surNames.length)], names[random.nextInt(names.length)], salary, age, profession[random.nextInt(profession.length)], hoursWorked, hourlyRate);
         return freelancer;
-    }
+    } 
     
-
-
-    /**
-     * TODO: Метод generateEmployees должен быть универсальным, возвращать некоторое кол-во
-     *  сотрудников различных типов
-     * @param count
-     * @return
-     */
-
+    
+    //метод создания работников предприятия рандомно
+    //без указания сколько каких специальностей создать.
     static Employee[] generateEmployees(int count){
-    Employee[] arrayEmployee = new Employee[count];
-
-    for (int j = 0; j < arrayEmployee.length; j++) {
-        arrayEmployee[j] = generateWorker();
-        j++;
-        if (j < arrayEmployee.length) {
-            arrayEmployee[j] = generateFreelancer();
-        }
-
-    }
-    return arrayEmployee;
-    }
-
-    public static void main(String[] args) {
-
-        Employee[] employees = generateEmployees(9);
-
-        Arrays.sort(employees, new SalaryComparator(SortType.Ascending));
-
-        for (Employee employee: employees) {
-            System.out.println(employee);
-        }
-
-        System.out.println();
-
-        Arrays.sort(employees, new SalaryComparator(SortType.Descending));
-
-        for (Employee employee: employees) {
-            System.out.println(employee);
-        }
-
-    }
+        Employee[] arrayEmployee = new Employee[count];
     
+        for (int j = 0; j < arrayEmployee.length; j++) {
+            arrayEmployee[j] = generateWorker();
+            j++;
+            if (j < arrayEmployee.length) {
+                arrayEmployee[j] = generateFreelancer();
+            }
+    
+        }
+        return arrayEmployee;
+        }
 }
