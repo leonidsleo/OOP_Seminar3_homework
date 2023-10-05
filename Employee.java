@@ -15,6 +15,25 @@ public abstract class Employee implements Comparable<Employee> {
 
     protected ProfessionType profession;
 
+    protected int idEmployee;
+
+    private static int idCounter;
+
+    public int getIdEmployee() {
+        return idEmployee;
+    }
+
+   {
+        idEmployee = ++idCounter;
+        // System.out.printf("Initializer %s\n", idEmployee);
+    }
+
+    static {
+        idCounter = 1000;
+        // System.out.printf("Static Initializer %s\n", idCounter);
+
+    }
+
 
 
     /**
@@ -31,18 +50,8 @@ public abstract class Employee implements Comparable<Employee> {
         this.profession = profession;
     }
 
-    @Override
-    public int compareTo(Employee o) {
-
-        int surNameRes = surName.compareTo(o.surName);
-        if (surNameRes == 0){
-            return name.compareTo(o.name);
-        }
-        return surNameRes;
-    }
-
     // @Override
     // public String toString() {
-    //     return String.format("%s %s; %s; Возраст %s; Заработная плата: %s.", surName, name, profession, calculateSalary());
+    //     return String.format("[%d] %s %s. ЗП: %.2f руб. Возраст %s лет (года). %s.", idEmployee, surName, name, salary, age, profession);
     // }
 }

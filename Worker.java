@@ -17,7 +17,6 @@ public class Worker extends Employee {
 
     @Override
     public String toString() {
-        return String.format("%s %s. ЗП: %.2f руб.. Возраст %s лет (года). %s.",
-                surName, name, salary, age, profession);
+        return String.format("[%d] %s %s. ЗП: %.2f руб.. Возраст %s лет (года). %s.", idEmployee, surName, name, salary, age, profession);
     }
 }

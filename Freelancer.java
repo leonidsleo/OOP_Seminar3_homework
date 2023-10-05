@@ -26,7 +26,6 @@ public class Freelancer extends Employee{
 
     @Override
     public String toString() {
-        return String.format("%s %s. ЗП: %.2f руб.. Возраст %s лет (года). %s. Отработал %.2f часов. Ставка %.2f.",
-                surName, name, salary, age, profession, hoursWorked, hourlyRate);
+        return String.format("[%s] %s %s. ЗП: %.2f руб.. Возраст %s лет (года). %s. Отработал %.2f часов. Ставка %.2f.", idEmployee, surName, name, salary, age, profession, hoursWorked, hourlyRate);
     }
 }

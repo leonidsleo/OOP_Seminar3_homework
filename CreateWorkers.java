@@ -5,7 +5,8 @@ import java.util.Random;
 public class CreateWorkers {
 
     private static Random random = new Random();
-//Создаем работников основных специальностей
+
+    //Создаем работников основных специальностей
     static Worker generateWorker(){
         String[] names = new String[] { "Анатолий", "Глеб", "Клим", "Мартин", "Лазарь", "Владлен", "Клим", "Панкратий", "Рубен", "Герман" };
         String[] surNames = new String[] { "Григорьев", "Фокин", "Шестаков", "Хохлов", "Шубин", "Бирюков", "Копылов", "Горбунов", "Лыткин", "Соколовкий" };
@@ -15,7 +16,7 @@ public class CreateWorkers {
         Worker worker = new Worker(surNames[random.nextInt(surNames.length)], names[random.nextInt(names.length)], salary, age, profession[random.nextInt(profession.length)]);
         return worker;
     }
-//Создаем работников фрилансеров
+    //Создаем работников фрилансеров
     static Freelancer generateFreelancer(){
         String[] names = new String[] { "Анатолий", "Глеб", "Богдан", "Аркадий", "Вадим", "Дамир", "Горимир", "Капитон", "Кирилл", "Герман" };
         String[] surNames = new String[] { "Агеев", "Алешин", "Блинов", "Хохлов", "Богданов", "Блохин", "Копытов", "Виноградов", "Белкин", "Соколов" };
